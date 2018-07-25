@@ -65,6 +65,14 @@ no-pam-sessions\n\
 permitted-security-types = otp\
 ' > /etc/turbovncserver-security.conf
 
+# Install Java 8
+
+RUN apt-get install -y software-properties-common python-software-properties \
+        default-jre default-jdk && \
+        add-apt-repository ppa:webupd8team/java && \
+        apt-get update && \
+        apt-get install -y oracle-java8-installer
+
 EXPOSE 5901
 ENV DISPLAY :1
 
