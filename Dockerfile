@@ -73,6 +73,9 @@ RUN apt-get install -y software-properties-common python-software-properties \
         apt-get update && \
         apt-get install -y oracle-java8-installer
 
+# Installing a few more dependencies as they pop up for Singularity
+RUN apt-get install libgtk2.0-0:i386 libsm6:i386
+
 EXPOSE 5901
 ENV DISPLAY :1
 
