@@ -67,14 +67,14 @@ permitted-security-types = otp\
 
 # Install Java 8
 
-RUN apt-get install -y software-properties-common python-software-properties \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential libgtk2.0-dev \
+        libgtk2.0-0:i386 libsm6:i386 \
+        software-properties-common python-software-properties \
         default-jre default-jdk && \
         add-apt-repository ppa:webupd8team/java && \
         apt-get update && \
         apt-get install -y oracle-java8-installer
-
-# Installing a few more dependencies as they pop up for Singularity
-RUN apt-get install libgtk2.0-0:i386 libsm6:i386
 
 EXPOSE 5901
 ENV DISPLAY :1
