@@ -83,9 +83,9 @@ RUN \
   rm -rf /var/cache/oracle-jdk8-installer
 
 # set locale
-ENV LANG en_US.UTF-8
-RUN echo $LANG UTF-8 > /etc/locale.gen && \
-    apt-get install -y locales && update-locale --reset LANG=$LANG
+# ENV LANG en_US.UTF-8
+# RUN echo $LANG UTF-8 > /etc/locale.gen && \
+#    apt-get install -y locales && update-locale --reset LANG=$LANG
 
 # some utils to have proper menus, mime file types etc.
 RUN apt-get install -y --no-install-recommends xdg-utils xdg-user-dirs \
