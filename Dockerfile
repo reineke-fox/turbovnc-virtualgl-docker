@@ -88,8 +88,8 @@ RUN \
 #    apt-get install -y locales && update-locale --reset LANG=$LANG
 
 # some utils to have proper menus, mime file types etc.
-RUN apt-get install -y --no-install-recommends xdg-utils xdg-user-dirs \
-    menu-xdg mime-support desktop-file-utils
+#RUN apt-get install -y --no-install-recommends xdg-utils xdg-user-dirs \
+#    menu-xdg mime-support desktop-file-utils
 
 # Xfce
 RUN apt-get install -y --no-install-recommends xfce4 && \
@@ -108,4 +108,6 @@ CMD ["bash"]
 EXPOSE 5901
 ENV DISPLAY :1
 
-ENTRYPOINT ["/opt/websockify/run", "5901", "--cert=/self.pem", "--ssl-only", "--web=/opt/noVNC", "--wrap-mode=ignore", "--", "vncserver", ":1", "-securitytypes", "otp", "-otp", "-noxstartup"]
+ENTRYPOINT ["/opt/websockify/run", "5901", "--cert=/self.pem", "--ssl-only", "--web=/opt/noVNC", "--wrap-mode=ignore", "--", "vncserver", "-geometry", "1920x1080", "-dpi", "128"]
+
+#":1", "-securitytypes", "otp", "-otp", "-noxstartup"]
