@@ -56,7 +56,7 @@ RUN curl -fsSL https://github.com/novnc/noVNC/archive/v${NOVNC_VERSION}.tar.gz |
     ln -s /opt/noVNC/vnc_lite.html /opt/noVNC/index.html && \
     cd /opt/websockify && make
 
-COPY self.pem /
+ADD self.pem /
 
 RUN echo 'no-remote-connections\n\
 no-httpd\n\
