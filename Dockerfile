@@ -82,18 +82,17 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
-# set locale
-# ENV LANG en_US.UTF-8
-# RUN echo $LANG UTF-8 > /etc/locale.gen && \
-#    apt-get install -y locales && update-locale --reset LANG=$LANG
+# Set the locale
+RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN locale-gen en_US.UTF-8
 
 # some utils to have proper menus, mime file types etc.
 #RUN apt-get install -y --no-install-recommends xdg-utils xdg-user-dirs \
 #    menu-xdg mime-support desktop-file-utils
 
 # Xfce
-RUN apt-get install -y --no-install-recommends xfce4 && \
-    apt-get install -y --no-install-recommends gtk3-engines-xfce xfce4-notifyd \
+RUN apt-get install -y --no-install-recommends xfce4
+RUN apt-get install -y --no-install-recommends gtk3-engines-xfce xfce4-notifyd \
       mousepad xfce4-taskmanager xfce4-terminal libgtk-3-bin
 
 # Define working directory.
