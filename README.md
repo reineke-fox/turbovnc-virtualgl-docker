@@ -18,3 +18,8 @@ openssl req -new -x509 -days 365 -nodes -out self.pem -keyout self.pem
 docker build -t $USER/turbovnc:latest . 
 
 ```
+
+See other repo here for a bit more documentation - https://github.com/tyson-swetnam/ubuntu-xfce-vnc
+
+For an alternative to VNC with a bit better latency, check out XPRA https://github.com/tyson-swetnam/docker-xpra
+
